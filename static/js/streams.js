@@ -39,6 +39,7 @@ let joinAndDisplayLocalStream = async () => {
     await client.publish([localTracks[0], localTracks[1]])
 }
 
+// user joining / new user creation
 let handleUserJoined = async (user, mediaType) => {
     remoteUsers[user.uid] = user
     await client.subscribe(user, mediaType)
@@ -65,11 +66,13 @@ let handleUserJoined = async (user, mediaType) => {
     }
 }
 
+// when a user leaves
 let handleUserLeft = async (user) => {
     delete remoteUsers[user.uid]
     document.getElementById(`user-container-${user.uid}`).remove()
 }
 
+// no user in stream so, the stream should be deleted
 let leaveAndRemoveLocalStream = async () => {
     for (let i=0; localTracks.length > i; i++){
         localTracks[i].stop()
@@ -82,6 +85,8 @@ let leaveAndRemoveLocalStream = async () => {
     window.open('/', '_self')
 }
 
+//--------------- Toggling functions -----------------------
+// Camera toggle
 let toggleCamera = async (e) => {
     console.log('TOGGLE CAMERA TRIGGERED')
     if(localTracks[1].muted){
@@ -93,6 +98,7 @@ let toggleCamera = async (e) => {
     }
 }
 
+// Microphone toggle
 let toggleMic = async (e) => {
     console.log('TOGGLE MIC TRIGGERED')
     if(localTracks[0].muted){
@@ -104,6 +110,8 @@ let toggleMic = async (e) => {
     }
 }
 
+// Member handlers
+// creation
 let createMember = async () => {
     let response = await fetch('/create_member/', {
         method:'POST',
@@ -116,13 +124,14 @@ let createMember = async () => {
     return member
 }
 
-
+// getting members
 let getMember = async (user) => {
     let response = await fetch(`/get_member/?UID=${user.uid}&room_name=${CHANNEL}`)
     let member = await response.json()
     return member
 }
 
+// deletion after they leave the stream
 let deleteMember = async () => {
     let response = await fetch('/delete_member/', {
         method:'POST',
@@ -145,4 +154,4 @@ document.getElementById('leave-btn').addEventListener('click',leaveAndRemoveLoca
 document.getElementById('camera-btn').addEventListener('click',toggleCamera)
 
 // event to toggle microphone
-document.getElementById("mic-btn").addEventListener('click',toggleMicrophone)
+document.getElementById("mic-btn").addEventListener('click',toggleMic)

@@ -1,0 +1,45 @@
+/* ---------- Form Styling ----------- */
+.form-wrapper{
+    padding: 50px;
+    background-color: rgb(196, 116, 250);
+    align-items: center;
+    border-radius: 10px;
+    width: 30rem;
+    height: auto;
+    margin: auto;
+    text-transform: capitalize;
+}
+
+.top-wrapper{
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.edit{
+    margin-left: 50rem;
+}
+
+.form-container{
+    display: block;
+    padding: 30px;
+    align-items: center;
+    text-align: center;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.form-wrapper label{
+    display: block;
+    font-size: 25px;
+}
+
+.form-wrapper div{
+    margin-top: auto;
+}
+.form-wrapper input{
+    width:70%;
+    border-radius: 5px;
+    font-size: 20px;
+    display: block;
+    margin-left: 55px;
+    align-self: center;
+}
