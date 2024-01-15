@@ -1,14 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Hedvig+Letters+Serif:opsz@12..24&display=swap');
+
+
 :root{
     --shadow:0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
 }
 
+/* ------ Main Lobby Styling ------ */
+
 body{
     background-color: rgba(232, 233, 231, 1);
+    font-family: 'Hedvig Letters Serif', serif;
 }
 
 #logo{
     display: block;
     width: 100px;
+    height: auto;
     margin: 0 auto;
 }
 
@@ -25,7 +32,61 @@ body{
     transform: translate(-50%, -50%);
 }
 
-/* ------- ROOM STYLING ------- */
+#welcome-message{
+    text-align: center;
+    margin: 20px;
+}
+
+#welcome-message h1{
+    font-size: 36px;
+}
+
+#welcome-message p{
+    font-size: 16px;
+}
+
+#form{
+    justify-content: center;
+}
+
+.form-field{
+    margin: 20px;
+}
+
+.form-field label{
+    font-size: 16px;
+    line-height: 1.7em;
+}
+
+input[type='text']{
+    width: 100%;
+    border-radius: 5px;
+    border: 2px solid rgba(198,202,219,1);
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+input[type='submit']{
+    width: 100%;
+}
+
+/* For screen flexibility */
+
+@media only screen and (max-width: 450px) {
+    #form-container{
+        width: 95%;
+    }
+
+    #welcome-message h1{
+        font-size: 24px;
+    }
+}
+
+/* ------- ROOM STYLING- Video Player ------- */
+#room-wrapper{
+    text-align: center;
+    font-size: 18px;
+}
 
 #video-streams{
     display: flex;
@@ -44,9 +105,59 @@ body{
     border-radius: 5px;
     margin: 2px;
     background-color: rgba(198, 202, 219,1);
+    position: relative;
 }
 
 .video-player{
     height: 100%;
     width: 100%;
+}
+
+.video-player > *{
+    border-radius: 5px;
+
+}
+
+.username-wrapper{
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    background-color: rgb(0,0,0,.3);
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    color: black;
+}
+
+@media screen and (max-width:1650px) {
+    .video-container{
+        flex-basis: 300px;
+        min-height: 200px;
+    }
+}
+
+/* ------ Icon And Control Styling ------ */
+
+#controls-wrapper{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    column-gap: 1em;
+    position: fixed;
+    bottom: 30px;
+}
+
+.control-icon{
+    height: 3rem;
+    width: 3rem;
+    box-shadow: var(--shadow);
+    background-color: white;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px ;
+}
+
+#leave-btn{
+    background-color: rgba(255,80,80,1);
 }
