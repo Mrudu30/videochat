@@ -1,0 +1,36 @@
+{% extends 'main.html' %}
+{% block content %}
+<!DOCTYPE html>
+<html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/form.css' %}">
+<body>
+    <div class="form-container">    
+        <form method="post" class="form-wrapper">
+            <h1>Sign Up</h1>
+            {% csrf_token %}
+            {% if error %}
+                <div class="alert alert-danger mt-3" role="alert">
+                  {{ error }}
+                </div>
+            {% endif %}
+            <div>
+                <label for="id_username">Username:</label>
+                <input type="text" name="username" maxlength="150" autocapitalize="none" autocomplete="username" autofocus="" required="" id="id_username">
+            </div>
+            <div>
+                <label for="id_password1">Password:</label>
+                <input type="password" name="password1" autocomplete="new-password" required="" id="id_password1" aria-autocomplete="list"> 
+                <span class="helptext"></span>
+            </div>
+            <div>
+                <label for="id_password2">Password confirmation:</label>
+                <input type="password" name="password2" autocomplete="new-password" required="" id="id_password2">
+            </div>  
+            <br>     
+            <input type="submit" value="Submit" class="btn btn-outline-dark">
+        </form>
+    </div>
+</body>
+</html>
+{% endblock content %}
