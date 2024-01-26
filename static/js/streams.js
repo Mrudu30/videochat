@@ -1,5 +1,5 @@
 // Basic info for the video user
-const APP_ID = "cf8338f00b7842788c354fce4fd390c7"
+const APP_ID = "Enter your app id"
 const CHANNEL = sessionStorage.getItem('room')
 const TOKEN = sessionStorage.getItem('token')
 let UID = Number(sessionStorage.getItem('UID'))
