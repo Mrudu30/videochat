@@ -18,8 +18,8 @@ def room(request):
     return render(request,'base/room.html')
 
 def getToken(request):
-    appId = "cf8338f00b7842788c354fce4fd390c7"
-    appCertificate = "5d2c3bbd443944299feaa6d84e5e5c25"
+    appId = "Insert Your App ID here"
+    appCertificate = "Insert Your App Certificate"
     channelName = request.GET.get('channel')
     uid = random.randint(1,230)
     # 24hrs
