@@ -1,0 +1,2 @@
+This Project is a full package with a documentation and ppt slides in the folder -> "Documentations". To summarize it i have made this project in Django and used api of agora sdk to handle the audio and video tracks. You are advised to download your own agora web package and enter an app id that you got in it and you may get 10,000 (10k) mins of free audio and video calling in this agora sdk. hope that this project is of use to you. 
+Also it is inside a video chat virtual env of python so be careful activate it first
